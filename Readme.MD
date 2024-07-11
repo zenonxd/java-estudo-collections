@@ -148,3 +148,43 @@ E enquanto tiver um next (um item), ele continuará iterando.
 <hr>
 
 ## Conversão entre Array e ArrayList
+
+O List possui alguns métodos estáticos que podemos utilizar. Se usarmos ``List.`` irá aparecer váários métodos:
+
+![img_1.png](img_1.png)
+
+Nós podemos, portanto, criar uma lista a partir de vários elementos.
+
+```java
+import java.util.List;
+
+List<String> listaDeNomes = List.of("Giuliana", "Leia", "Rey");
+System.out.println(listaDeNomes);
+```
+
+Podemos criar uma lista a partir de Arrays também!
+
+```java
+import java.util.Arrays;
+import java.util.List;
+
+String[] arrayDeNomes = {"Giuliana", "Leia", "Rey"};
+
+//convertendo para lista:
+List<String> listaConvertida = Arrays.asList(arrayDeNomes);
+System.out.println(listaConvertida);
+```
+
+**E de Lista para Array?**
+
+Lists tem um método chamado ``toArray()``, ele vai retornar um array de objetos, veja:
+
+```java
+import java.util.Arrays;
+import java.util.List;
+
+//precisamos iniciar com new String para que ele saiba o tipo de objeto a retornar
+// e um tamanho padrão também.
+String[] arrayConvertido = listaConvertida.toArray(new String([0]));
+System.out.println(Arrays.toString(arrayConvertido));
+```
