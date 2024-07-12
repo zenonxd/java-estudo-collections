@@ -6,7 +6,21 @@
 
 ## Tópicos
 
-- []()
+- [Arrays vs Collections](#arrays-vs-collections)
+- [Declarando uma ArrayList](#declarando-um-arraylist)
+- [Adicionando Elementos no ArrayList](#adicionando-elementos-no-arraylist)
+- [Get no ArrayList](#get-no-arraylist)
+- [Insert e Update no ArrayList](#insert-e-update-no-arraylist)
+- [Delete no ArrayList](#delete-no-arraylist)
+- [Sort no ArrayList](#sort-no-arraylit)
+- [Percorrendo ArrayList - For vs Iterator](#percorrendo-um-arraylist---for-vs-iterator)
+- [Conversão entre Array e ArrayList](#conversão-entre-array-e-arraylist)
+- [Map e Hashmap](#map-e-hashmap)
+  - [Adicionando Elementos](#como-adicionar-elementos-no-map)
+  - [Recuperando Elementos](#como-recuperar-elementos-no-map)
+  - [Atualizando Elementos](#como-atualizar-elementos-no-map)
+  - [Removendo Elementos](#como-remover-elementos-no-map)
+  - [Iterando pelo Map](#como-iterar-sobre-todos-elementos-no-map)
 
 <hr>
 
@@ -188,3 +202,97 @@ import java.util.List;
 String[] arrayConvertido = listaConvertida.toArray(new String([0]));
 System.out.println(Arrays.toString(arrayConvertido));
 ```
+<hr>
+
+## Map e HashMap
+
+Existe também um tipo de coleção para salvar um conjunto de identificador (key) e valor (value), 
+ele chama-se Map.
+
+``Map<K,V>`` - K para chave e V para valor.
+
+Imagine que queremos guardar uma lista de usuário onde a **chave é o Username** e o **valor o nome dele**.
+
+Será um:
+
+```java
+import java.util.HashMap;
+
+Map<String, String> mapaDeUsuarios = new HashMap<>();
+```
+
+### Como adicionar elementos no Map?
+Para inicializar o HashMap é semelhante à lista, mas agora é ``put``, informando chave e valor.
+```java
+import java.util.HashMap;
+
+Map<String, String> mapaDeUsuarios = new HashMap<>();
+mapaDeUsuarios.put("giuliana", "Giuliana");
+mapaDeUsuarios.put("leia", "Leia");
+```
+
+E assim como lá em cima, podemos inicializar também direto na declaração.
+```java
+import java.util.HashMap;
+
+Map<String, String> mapaDeUsuarios = new HashMap<>() {{
+    put("giuliana", "Giuliana");
+    put("leia", "Leia");
+}};
+System.out.println(mapaDeUsuarios);
+```
+
+### Como recuperar elementos no Map?
+
+Usamos o ``get``, passando a chave:
+```java
+import java.util.HashMap;
+
+Map<String, String> mapaDeUsuarios = new HashMap<>();
+mapaDeUsuarios.get("valorDaChave");
+```
+
+### Como atualizar elementos no Map?
+
+Usamos o ``put``. A diferença do put ali pra cima, é que se passarmos uma chave que já existe,
+ele vai substituir o valor.
+
+```java
+import java.util.HashMap;
+
+Map<String, String> mapaDeUsuarios = new HashMap<>();
+mapaDeUsuario.put("chaveASerSubstituida", "valorSubstituido");
+```
+
+### Como remover elementos no Map?
+
+Usamos o ``remove``, que recebemos a chave que queremos remover.
+
+```java
+import java.util.HashMap;
+
+Map<String, String> mapaDeUsuarios = new HashMap<>();
+mapaDeUsuario.remove("chaveASerRemovida");
+```
+
+### Como iterar sobre todos elementos no Map?
+
+Se não temos índice, como fazer? Iremos iterar pelo for, mas agora com os **valores** que temos no mapa.
+
+```java
+//o values transforma o Map em uma Collection
+for (String valores : mapaDeUsuarios.values()) {
+    System.out.println(valores);
+}
+```
+
+Pode ser feito um for percorrendo as chaves também!
+```java
+//keySet retorna um conjunto de chaves que é possivel percorre-lo
+for (String chaves : mapaDeUsuarios.keySet()) {
+    System.out.println(valores);
+}
+```
+
+
+
